@@ -1,0 +1,20 @@
+# Reusable workflow – *all* site‑specific jobs call this
+on:
+  workflow_call:
+    inputs:
+      module: { type: string, required: true }
+    secrets:
+      FIRECRAWL_API_KEY: { required: true }
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python runner.py ${{ inputs.module }}
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }} 

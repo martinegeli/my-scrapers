@@ -1,0 +1,9 @@
+# Python artefacts
+__pycache__/
+*.py[cod]
+.venv/
+# VS Code / PyCharm
+.idea/
+.vscode/
+# Large raw snapshots (keep JSONs small enough for Git)
+data/**/*.json 

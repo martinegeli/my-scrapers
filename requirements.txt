@@ -1,0 +1,4 @@
+firecrawl-py
+beautifulsoup4
+lxml
+python-dotenv 

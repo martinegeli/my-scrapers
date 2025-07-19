@@ -1,0 +1,11 @@
+name: FINN daily (07:00 UTC)
+on:
+  schedule:
+    - cron:  '0 7 * * *'      # every day 07:00 UTC
+  workflow_dispatch:          # manual "Run workflow" button
+jobs:
+  call:
+    uses: ./.github/workflows/_reusable_scrape.yml
+    with:
+      module: finn
+    secrets: inherit 
